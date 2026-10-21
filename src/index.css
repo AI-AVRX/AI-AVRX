@@ -1,0 +1,229 @@
+@import "tailwindcss";
+
+:root {
+  --bg-canvas: #F8FAFC;
+  --bg-pearl: #FAFBFD;
+  --color-avrx-cyan: #0891B2;
+  --color-electric-cyan: #06B6D4;
+  --color-electric-blue: #2563EB;
+  --color-ai-violet: #7C3AED;
+  --color-deep-indigo: #4F46E5;
+  --color-selective-magenta: #D946EF;
+  --color-deep-navy: #0F172A;
+  --color-midnight: #0B1120;
+  --color-abyss: #080D1A;
+  --color-success-mint: #D1FAE5;
+}
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  
+  --color-brand-cyan: #0891B2;
+  --color-brand-cyan-light: #06B6D4;
+  --color-brand-blue: #2563EB;
+  --color-brand-violet: #7C3AED;
+  --color-brand-indigo: #4F46E5;
+  --color-brand-magenta: #D946EF;
+  --color-brand-navy: #0F172A;
+  --color-brand-midnight: #0B1120;
+  --color-brand-mint: #D1FAE5;
+}
+
+/* Base Body Style */
+body {
+  background-color: var(--bg-canvas);
+  color: #0F172A;
+  overflow-x: hidden;
+}
+
+/* Subtle dot grid backgrounds */
+.bg-dot-grid-light {
+  background-image: radial-gradient(rgba(15, 23, 42, 0.08) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.bg-dot-grid-dark {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.bg-dot-grid-dense {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+
+/* Atmospheric Aurora Blooms */
+.bg-aurora-glow {
+  background: 
+    radial-gradient(ellipse 60% 40% at 20% 10%, rgba(8, 145, 178, 0.12), transparent 70%),
+    radial-gradient(ellipse 50% 35% at 80% 20%, rgba(124, 58, 237, 0.10), transparent 70%),
+    radial-gradient(ellipse 70% 50% at 50% 85%, rgba(37, 99, 235, 0.08), transparent 75%);
+}
+
+.bg-aurora-mesh {
+  background:
+    radial-gradient(at 0% 0%, rgba(6, 182, 212, 0.12) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(124, 58, 237, 0.10) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(37, 99, 235, 0.06) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, rgba(217, 70, 239, 0.08) 0px, transparent 50%);
+}
+
+.bg-aurora-dark {
+  background: 
+    radial-gradient(ellipse 70% 50% at 30% 20%, rgba(8, 145, 178, 0.22), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 75% 75%, rgba(124, 58, 237, 0.20), transparent 70%),
+    radial-gradient(ellipse 50% 30% at 50% 50%, rgba(37, 99, 235, 0.15), transparent 75%);
+}
+
+/* Glassmorphism Panels */
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.glass-panel-dark {
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(51, 65, 85, 0.8);
+}
+
+/* Animated Gradient Borders */
+@keyframes borderRotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient-border {
+  position: relative;
+  border-radius: 1rem;
+}
+
+.animated-gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -1.5px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(90deg, #0891B2, #2563EB, #7C3AED, #D946EF, #0891B2);
+  background-size: 300% 300%;
+  animation: borderRotate 6s ease infinite;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Light beam sweep */
+@keyframes lightSweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+.animate-light-sweep {
+  animation: lightSweep 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.45);
+}
+
+/* Wire and data flow animation utilities */
+@keyframes wireDash {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+.animate-wire-flow {
+  animation: wireDash 1s linear infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.6;
+    filter: drop-shadow(0 0 4px rgba(8, 145, 178, 0.4));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 10px rgba(8, 145, 178, 0.85));
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+/* Float Animation for Cinematic Hero Orbs */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.02);
+  }
+}
+
+.animate-float-slow {
+  animation: floatGentle 5s ease-in-out infinite;
+}
+
+/* Scroll reveal helper transitions */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respect user's prefers-reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .animated-gradient-border::before {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "AVRX AI | Autonomous AI Agents & Workflow Automation",
+  "description": "Visual autonomous agent builder and workflow automation platform. Connect LLMs, enterprise APIs, internal vector memory, and human review gates in unified node graphs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
